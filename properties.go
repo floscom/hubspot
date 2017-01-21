@@ -1,7 +1,7 @@
 package hubspot
 
 type Property struct {
-	Property string      `json:"property"`
+	Property string      `json:"name"`
 	Value    interface{} `json:"value"`
 }
 

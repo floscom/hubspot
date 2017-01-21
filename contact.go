@@ -33,7 +33,7 @@ func NewContact(apiKey, email string) *Contact {
 // http://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties
 func (h *Contact) Publish() (cr *ContactResp) {
 	const (
-		hubspotUrl = "http://api.hubapi.com/contacts/v1/contact/createOrUpdate/email/%s/?hapikey=%s"
+		hubspotUrl = "https://api.hubapi.com/contacts/v1/contact/createOrUpdate/email/%s/?hapikey=%s"
 	)
 
 	url := fmt.Sprintf(hubspotUrl, h.Email, h.APIKey)

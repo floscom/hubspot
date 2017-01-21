@@ -33,7 +33,7 @@ func (h *Deal) Add(prop string, value interface{}) {
 
 func (h *Deal) Publish() {
 	const (
-		hubspotUrl = "http://api.hubapi.com/deals/v1/deal/?hapikey=%s"
+		hubspotUrl = "https://api.hubapi.com/deals/v1/deal/?hapikey=%s"
 	)
 
 	url := fmt.Sprintf(hubspotUrl, h.APIKey)
