@@ -34,10 +34,10 @@ d.Publish()
 // Single Send Email has 2 property types. Contact and Custom, so we need to specify using the first param
 e := hubspot.NewEmail(api_key, email_id, to_email_address)
 
-// Adding a contact param
+// Adding a contact property
 e.Add("contact", "firstname", "Jack")
 
-// Adding a custom param
+// Adding a custom property
 e.Add("custom", "some_custom_key", "some_custom_value")
 
 e.Publish()
