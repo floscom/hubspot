@@ -4,9 +4,13 @@ HubSpot API in Go.
 
 
 #+begin_src go
-apiKey := os.Getenv("HUBSPOT_API_KEY")
+import(
+  "github.com/Fyb3roptik/hubspot"
+)
 
-a := NewContact(apiKey, "abhi@acksin.com")
+api_key := os.Getenv("HUBSPOT_API_KEY")
+
+a := NewContact(api_key, "abhi@acksin.com")
 a.Add("firstname", "Abhi")
 a.Add("lastname", "Yerra")
 a.Add("company", "Acksin")
@@ -17,7 +21,7 @@ if resp.Vid != 901 {
         t.Errorf("Failed to update contact")
 }
 
-d := NewDeal(apiKey)
+d := NewDeal(api_key)
 d.Associations.AssociatedVids = []int{resp.Vid}
 d.Add("dealname", "Tim's Newer Deal")
 d.Add("dealstage", "closedwon")
@@ -25,4 +29,16 @@ d.Add("closedate", Timestamp())
 d.Add("amount", "60000")
 d.Add("dealtype", "newbusiness")
 d.Publish()
+
+// Single Send Email has 2 property types. Contact and Custom, so we need to specify using the first param
+e := hubspot.NewEmail(api_key, email_id, to_email_address)
+
+// Adding a contact param
+e.Add("contact", "firstname", "Jack")
+
+// Adding a custom param
+e.Add("custom", "some_custom_key", "some_custom_value")
+
+e.Publish()
+
 #+end_src
