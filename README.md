@@ -42,3 +42,5 @@ e.Add("custom", "some_custom_key", "some_custom_value")
 
 e.Publish()
 ```
+# Credit
+This is based on the original library written by acksin
