@@ -1,9 +1,10 @@
-#+TITLE: HubSpot
+#HubSpot
 
 HubSpot API in Go.
 
 
-#+begin_src go
+#Examples
+```golang
 import(
   "github.com/Fyb3roptik/hubspot"
 )
@@ -40,5 +41,4 @@ e.Add("contact", "firstname", "Jack")
 e.Add("custom", "some_custom_key", "some_custom_value")
 
 e.Publish()
-
-#+end_src
+```
