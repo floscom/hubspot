@@ -15,7 +15,7 @@ import(
 
 api_key := os.Getenv("HUBSPOT_API_KEY")
 
-a := NewContact(api_key, "abhi@acksin.com")
+a := hubspot.NewContact(api_key, "abhi@acksin.com")
 a.Add("firstname", "Abhi")
 a.Add("lastname", "Yerra")
 a.Add("company", "Acksin")
@@ -26,7 +26,7 @@ if resp.Vid != 901 {
         t.Errorf("Failed to update contact")
 }
 
-d := NewDeal(api_key)
+d := hubspot.NewDeal(api_key)
 d.Associations.AssociatedVids = []int{resp.Vid}
 d.Add("dealname", "Tim's Newer Deal")
 d.Add("dealstage", "closedwon")
