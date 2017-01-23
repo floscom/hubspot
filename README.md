@@ -37,9 +37,9 @@ d.Publish()
 
 // Single Send Email has 2 property types. Contact and Custom, so we need to specify using the first param. The To, From and ReplyTo are required.
 message := hubspot.Message{
-  To: "gamezetc@gmail.com",
-  From: "noreply@jackpotrising.com",
-  ReplyTo: "noreply@jackpotrising.com",
+  To: "someuser@mail.com",
+  From: "noreply@yourdomain.com",
+  ReplyTo: "noreply@yourdomain.com",
 }
 e := hubspot.NewEmail(api_key, email_id, message)
 
