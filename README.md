@@ -14,7 +14,9 @@ import(
 )
 
 api_key := os.Getenv("HUBSPOT_API_KEY")
-
+```
+## Create Contact via Contact API
+```golang
 a := hubspot.NewContact(api_key, "abhi@acksin.com")
 a.Add("firstname", "Abhi")
 a.Add("lastname", "Yerra")
@@ -25,7 +27,9 @@ resp := a.Publish()
 if resp.Vid != 901 {
         t.Errorf("Failed to update contact")
 }
-
+```
+## Create New Deal via Deal API
+```golang
 d := hubspot.NewDeal(api_key)
 d.Associations.AssociatedVids = []int{resp.Vid}
 d.Add("dealname", "Tim's Newer Deal")
@@ -34,7 +38,9 @@ d.Add("closedate", Timestamp())
 d.Add("amount", "60000")
 d.Add("dealtype", "newbusiness")
 d.Publish()
-
+```
+## Create Single-Send Email via Single-Send API
+```golang
 // Single Send Email has 2 property types. Contact and Custom, so we need to specify using the first param. The To, From and ReplyTo are required.
 message := hubspot.Message{
   To: "someuser@mail.com",
