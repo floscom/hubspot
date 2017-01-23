@@ -2,6 +2,10 @@
 
 HubSpot API in Go.
 
+# Installation
+```golang
+go get github.com/Fyb3roptik/hubspot
+```
 
 #Examples
 ```golang
