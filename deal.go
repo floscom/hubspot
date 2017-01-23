@@ -1,11 +1,8 @@
 package hubspot
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 )
 
 type Deal struct {
@@ -32,27 +29,11 @@ func (h *Deal) Add(prop string, value interface{}) {
 }
 
 func (h *Deal) Publish() {
-	const (
-		hubspotUrl = "https://api.hubapi.com/deals/v1/deal/?hapikey=%s"
-	)
-
-	url := fmt.Sprintf(hubspotUrl, h.APIKey)
+	url := fmt.Sprintf("/deals/v1/deal?hapikey=%s", h.APIKey)
 
 	b, _ := json.Marshal(h)
 
-	fmt.Println(string(b))
+	x := Send(url, "POST", b)
 
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(b))
-	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Content-Type", "application/json")
-
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	if err != nil {
-		panic(err)
-	}
-	defer resp.Body.Close()
-
-	x, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println("Hubspot body", string(x), resp)
+	fmt.Println("Hubspot body", string(x))
 }

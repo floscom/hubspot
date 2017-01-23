@@ -31,8 +31,13 @@ d.Add("amount", "60000")
 d.Add("dealtype", "newbusiness")
 d.Publish()
 
-// Single Send Email has 2 property types. Contact and Custom, so we need to specify using the first param
-e := hubspot.NewEmail(api_key, email_id, to_email_address)
+// Single Send Email has 2 property types. Contact and Custom, so we need to specify using the first param. The To, From and ReplyTo are required.
+message := hubspot.Message{
+  To: "gamezetc@gmail.com",
+  From: "noreply@jackpotrising.com",
+  ReplyTo: "noreply@jackpotrising.com",
+}
+e := hubspot.NewEmail(api_key, email_id, message)
 
 // Adding a contact property
 e.Add("contact", "firstname", "Jack")
