@@ -15,7 +15,7 @@ type Deal struct {
 
 	PortalID int `json:"portalId,omitempty"`
 
-	Properties []PropertyDeal `json:"properties,omitempty"`
+	Properties []Property `json:"properties,omitempty"`
 }
 
 func NewDeal(apiKey string) *Deal {
@@ -25,7 +25,7 @@ func NewDeal(apiKey string) *Deal {
 }
 
 func (h *Deal) Add(prop string, value interface{}) {
-	h.Properties = append(h.Properties, PropertyDeal{prop, value})
+	h.Properties = append(h.Properties, Property{prop, value})
 }
 
 func (h *Deal) Publish() {

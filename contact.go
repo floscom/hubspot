@@ -27,7 +27,6 @@ func NewContact(apiKey, email string) *Contact {
 	}
 }
 
-// http://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties
 func (h *Contact) Publish() (cr *ContactResp) {
 	url := fmt.Sprintf("/contacts/v1/contact/createOrUpdate/email/%s/?hapikey=%s", h.Email, h.APIKey)
 
