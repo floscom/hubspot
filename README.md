@@ -57,5 +57,13 @@ e.Add("custom", "some_custom_key", "some_custom_value")
 
 e.Publish()
 ```
+## Create a New Contact via Form API
+```golang
+e := hubspot.NewForm(api_key, portal_id, form_guid)
+e.Add("firstname", "Tester")
+e.Add("lastname", "McTest")
+e.Add("email", "tester@testing.com")
+e.Publish()
+```
 # Credit
 This is based on the original library written by acksin
