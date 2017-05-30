@@ -1,4 +1,4 @@
-#HubSpot
+# HubSpot
 
 HubSpot API in Go.
 
@@ -7,7 +7,7 @@ HubSpot API in Go.
 go get github.com/Fyb3roptik/hubspot
 ```
 
-#Examples
+# Examples
 ```golang
 import(
   "github.com/Fyb3roptik/hubspot"
