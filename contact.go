@@ -3,6 +3,7 @@ package hubspot
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 )
 
 type Contact struct {
@@ -32,6 +33,7 @@ func (h *Contact) Publish() (cr *ContactResp) {
 
 	b, _ := json.Marshal(h)
 
+	log.Println("b", string(b))
 	x := Send(url, "POST", b)
 
 	cr = &ContactResp{}

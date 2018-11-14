@@ -1,12 +1,12 @@
 package hubspot
 
 import (
-	"fmt"
 	"bytes"
+	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
-	"log"
 )
 
 func Send(endpoint string, http_type string, data []byte) []byte {
